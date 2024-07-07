@@ -1,0 +1,6 @@
+LOGIN = 'polov1111@yandex.ru'
+PASSWORD = '12345678'
+INGREDIENT_DETAILS = 'Детали ингредиента'
+COUNT_INGREDIENT = '1'
+DEFAULT_ORDER_NUMBER = '9999'
+
