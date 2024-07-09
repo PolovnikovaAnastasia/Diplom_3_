@@ -6,6 +6,7 @@ from pages.constructor_page import ConstructorPage
 from pages.order_feed_page import OrderFeedPage
 from pages.personal_account_page import PersonalAccountPage
 from tests.url import URL, PROFILE
+from pages.base_page import *
 
 
 class TestOrderFeed:
@@ -18,7 +19,7 @@ class TestOrderFeed:
         with allure.step('Нажимаем кнопку "Лента заказов"'):
             order_details.click_order_feed_button()
         with allure.step('Ожидание элемента перед кликом'):
-            order_details.wait(order_history)
+            order_details.waitt(order_history)
         with allure.step('Нажимаем на первый заказ в ленте'):
             order_details.click_order_history()
         with allure.step('Проверяем, что открылась окно с заказом'):
@@ -51,13 +52,13 @@ class TestOrderFeed:
         with allure.step('Нажимаем на кнопку "История заказов"'):
             personal_lk.click_button_history()
         with allure.step('Добавляем ожидание'):
-            personal_lk.wait(order_history_item)
+            personal_lk.waitt(order_history_item)
         with allure.step('Находим номер последнего заказа в ЛК'):
             last_order_number = personal_lk.get_order_history_item()
         with allure.step('Нажимаем кнопку "Лента заказов"'):
             user_order_history.click_order_feed_button()
         with allure.step('Добавляем ожидание'):
-            constructor.wait(number)
+            constructor.waitt(number)
         with allure.step('Проверяем, что последний заказ из ЛК есть в ленте заказов'):
             order_numbers_in_feed = user_order_history.get_order()
             assert last_order_number in order_numbers_in_feed
@@ -78,7 +79,7 @@ class TestOrderFeed:
         with allure.step('Открываем страницу "Лента заказов"'):
             orders_module_all_time.click_order_feed_button()
         with allure.step('Добавляем ожидание'):
-            orders_module_all_time.wait(completed_all_time)
+            orders_module_all_time.waitt(completed_all_time)
         with allure.step('Сохраняем кол-во заказов до создания нового'):
             count_number = orders_module_all_time.get_completed_all_time()
         with allure.step('Собираем бургер и оформляем заказ'):
@@ -101,7 +102,7 @@ class TestOrderFeed:
         with allure.step('Открываем страницу "Лента заказов"'):
             today_counter.click_order_feed_button()
         with allure.step('Добавляем ожидание'):
-            today_counter.wait(completed_all_time)
+            today_counter.waitt(completed_all_time)
         with allure.step('Сохраняем кол-во заказов сегодня до создания нового'):
             count_number = today_counter.get_completed_today()
             constructor.create_order_and_check_in_feed(browser)
@@ -132,7 +133,7 @@ class TestOrderFeed:
         with allure.step('Открываем страницу "Лента заказов"'):
             new_order_appears_in_work.click_order_feed_button()
             with allure.step('Добавляем ожидание'):
-                new_order_appears_in_work.wait(at_work)
+                new_order_appears_in_work.waitt(at_work)
         with allure.step('Получаем номер заказа в работе'):
             count_number = new_order_appears_in_work.get_at_work()
         with allure.step('Сравниваем, что номер заказа в работе совпадает с "number_order"'):

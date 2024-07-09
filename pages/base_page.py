@@ -18,14 +18,14 @@ class BasePage:
         return element.get_attribute(attribute)
 
     @allure.step('Явное ожидание. Пока элемент не будет кликабелен')
-    def wait(self, locator):
+    def waitt(self, locator):
         WebDriverWait(self.browser, 10).until(expected_conditions.element_to_be_clickable(locator))
         return self.browser.find_element(*locator)
 
     @allure.step('Ждет загрузки страницы с указанным URL.')
     def wait_for_page_load(self, url):
-        wait = WebDriverWait(self.browser, 10)
-        wait.until(EC.url_to_be(url))
+        wait_o = WebDriverWait(self.browser, 10)
+        wait_o.until(EC.url_to_be(url))
 
     @allure.step('Поиск элемента')
     def find_element(self, *args):

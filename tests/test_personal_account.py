@@ -32,7 +32,7 @@ class TestPersonalAccount:
         with allure.step('Нажимаем на кнопку "Личный кабинет"'):
             order_history.click_personal_account()
         with allure.step('Добавляем ожидание для загрузки страницы'):
-            order_history.wait(order_history_link)
+            order_history.waitt(order_history_link)
         with allure.step('Нажимаем на кнопку "История заказов"'):
             order_history.click_button_history()
         with allure.step('Проверяем, что открылась страница "История заказов"'):
@@ -50,7 +50,7 @@ class TestPersonalAccount:
         with allure.step('Нажимаем на кнопку "Личный кабинет"'):
             logout_your.click_personal_account()
         with allure.step('Добавляем ожидание для загрузки страницы'):
-            logout_your.wait(button_exit)
+            logout_your.waitt(button_exit)
         with allure.step('Нажимаем на кнопку "Выйти"'):
             logout_your.click_button_exit()
         with allure.step('Добавляем ожидание для загрузки страницы'):

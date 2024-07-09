@@ -69,7 +69,7 @@ class ConstructorPage(BasePage):
         with allure.step('Открываем страницу "Лента заказов"'):
             order_feed_page.click_order_feed_button()
         with allure.step('Добавляем ожидание для загрузки страницы'):
-            order_feed_page.wait(completed_all_time)
+            order_feed_page.waitt(completed_all_time)
 
     @allure.step('Возвращает ингредиент')
     def get_ingredient(self):
